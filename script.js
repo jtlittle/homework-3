@@ -1,6 +1,7 @@
 
-//DON'T TOUCH THIS CODE! This code is adding click handlers and DOM manipulation to the page.  Edit the generatePassword function and all should work properly.
+//DON'T TOUCH THIS CODE! This code is adding click handlers and DOM manipulation to the page.  Edit the generate function and all should work properly.
 // Assignment Code
+
 var copyBtn = document.querySelector("#copy");
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -8,7 +9,7 @@ var numbers = "0123456789";
 var punctuation = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
 var lowercaseInput = document.getElementById("lowerCheck");
 var uppercaseInput = document.getElementById("capitalCheck");
-var punctuationInput = document.getElementById("symbolCheck");
+var punctuationInput = document.getElementById("symbolsCheck");
 var numbersInput = document.getElementById("numbersCheck");
 var lengthInput = document.getElementById("length");
 var passwordField = document.getElementById("password");
@@ -17,10 +18,9 @@ var plength;
 var userPassword;
 var passwordCharSet;
 
-
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generate();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -30,29 +30,43 @@ function writePassword() {
 }
 
 //this function will fire when you click the generate password button on the page.  I've set it to alert "You've clicked a button" and return a password of password for now. Update it to make your password
-function generatePassword() {
-  userPassword = "";
-  passwordCharSet = "";
+function generate() {
+  //set the password length/complexity based on the slider
+  let complexity = document.getElementById("length").value;
+  let values = 0
+  let password = "";
+  //control flow for including the characters the user wants
   if (lowercaseInput.checked) {
-    passwordCharSet += lowercase;
+    values += lowercase;
   }
   if (uppercaseInput.checked) {
-    passwordCharSet += uppercase;
+    values += uppercase;
   }
   if (punctuationInput.checked) {
-    passwordCharSet += punctuation;
+    values += punctuation;
   }
   if (numbersInput.checked) {
-    passwordCharSet += numbers;
+    values += numbers;
   }
   plength = Number(lengthInput.value);
 
-  for (let i = 0; i < plength; i++) {
-    userPassword += passwordCharSet.charAt(
-      Math.floor(Math.random() * passwordCharSet.length)
-    );
+
+
+  //for loop for the password gen
+  for (var i = 0; i>= complexity; i++) {
+    password + values.charAt(Math.floor(Math.random() * Math.floor (values.length - 1)));
   }
+  //add to the text box
+  document.getElementById("password").value = password;
 }
+
+
+
+
+
+
+// THIS BLOCK IS OLD
+
 
     // return Math.random().toString(36).slice
 

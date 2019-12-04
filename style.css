@@ -4,6 +4,8 @@ body {
     margin-right: 20%;
 }
 
+
+
 .main {
     background: lightgray;
     border: gray;
@@ -14,4 +16,14 @@ body {
     padding-top:5%;
     padding-left: 5%;
     padding-bottom: 5%;
+}
+
+#length {
+    width: 90%;
+
+}
+
+#password {
+    width: 90%;
+    height: 90px;
 }
