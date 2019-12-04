@@ -1,0 +1,17 @@
+body {
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.main {
+    background: lightgray;
+    border: gray;
+    border-style: solid;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-right:7%;
+    padding-top:5%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
