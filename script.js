@@ -22,7 +22,7 @@ var passwordCharSet;
 function writePassword() {
   var password = generate();
   var passwordText = document.querySelector("#password");
-
+  console.log(password);
   passwordText.value = password;
 
   copyBtn.removeAttribute("disabled");
@@ -33,7 +33,7 @@ function writePassword() {
 function generate() {
   //set the password length/complexity based on the slider
   let complexity = document.getElementById("length").value;
-  let values = 0
+  let values = 0;
   let password = "";
   //control flow for including the characters the user wants
   if (lowercaseInput.checked) {
@@ -48,28 +48,18 @@ function generate() {
   if (numbersInput.checked) {
     values += numbers;
   }
+
   plength = Number(lengthInput.value);
 
-
-
+  
   //for loop for the password gen
-  for (var i = 0; i>= complexity; i++) {
-    password + values.charAt(Math.floor(Math.random() * Math.floor (values.length - 1)));
+  for (var i = 0; i < plength; i++) {
+    
+    password += values.charAt(Math.floor(Math.random() * (values.length)));
   }
-  //add to the text box
-  document.getElementById("password").value = password;
+
+  return password;
 }
-
-
-
-
-
-
-// THIS BLOCK IS OLD
-
-
-    // return Math.random().toString(36).slice
-
 
 function copyToClipboard() {
 
